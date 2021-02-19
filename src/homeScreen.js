@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 
 import React from 'react';
 import {
@@ -15,16 +8,20 @@ import {
   Image,
 } from 'react-native';
 
-export default function App(){
-  return (
+const HomeScreen = ({ navigation }) => (
     <View style={styles.container}>
       <Image style={styles.imgQuadrado} source={require('./assets/quadrados.png')}/>
-      <TouchableOpacity style={styles.touchableButton}>
+      <TouchableOpacity style={styles.touchableButton} onPress={() => navigation.navigate('About')}>
         <Text style={styles.textButton}>Start Game</Text>
       </TouchableOpacity>
     </View>
   );
-};
+
+
+HomeScreen.navigationOptions = {
+  title: 'Home',
+  backgroundColor: '#d5d1f8',
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -45,7 +42,7 @@ const styles = StyleSheet.create({
     borderBottomColor: 'black',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 300,
+    width: 200,
     marginTop: 20,
     
   },
@@ -56,3 +53,4 @@ const styles = StyleSheet.create({
 });
 
 
+export default HomeScreen;
